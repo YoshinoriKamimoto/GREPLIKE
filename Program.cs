@@ -72,11 +72,10 @@ internal class Program
     // ファイルの文字列チェックメソッド
     private static DataTable CheckString(string[] files, string searchWord)
     {
-        // 戻り値用のコレクションを作成
-        // Key:ファイルパス、Value:検索文字列があった行番号
+        // 戻り値用のテーブルを作成
         DataTable dt = new DataTable();
-        dt.Columns.Add("file_path", typeof(string));
-        dt.Columns.Add("line_number", typeof(string));
+        dt.Columns.Add("file_path", typeof(string)); // ファイルパスを保持
+        dt.Columns.Add("line_number", typeof(string)); // 該当文字列が見つかった行番号を保持
 
 
         // 全ファイルチェック
@@ -94,7 +93,7 @@ internal class Program
                         lineNum++;
                         string str = sr.ReadLine();
 
-                        // 検索文字列が含まれていれば、ファイルパス、行番号をコレクションに追加
+                        // 検索文字列が含まれていれば、ファイルパス、行番号をテーブルに追加
                         if (str.Contains(searchWord))
                         {
                             DataRow dr = dt.NewRow();
