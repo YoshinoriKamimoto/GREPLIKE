@@ -1,0 +1,14 @@
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\bin\Debug\net8.0\GREPLIKE.exe
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\bin\Debug\net8.0\GREPLIKE.deps.json
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\bin\Debug\net8.0\GREPLIKE.runtimeconfig.json
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\bin\Debug\net8.0\GREPLIKE.dll
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\bin\Debug\net8.0\GREPLIKE.pdb
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\GREPLIKE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\GREPLIKE.AssemblyInfoInputs.cache
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\GREPLIKE.AssemblyInfo.cs
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\GREPLIKE.csproj.CoreCompileInputs.cache
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\GREPLIKE.dll
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\refint\GREPLIKE.dll
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\GREPLIKE.pdb
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\GREPLIKE.genruntimeconfig.cache
+C:\Users\kamimoto\Desktop\work\test\GREPLIKE\obj\Debug\net8.0\ref\GREPLIKE.dll
