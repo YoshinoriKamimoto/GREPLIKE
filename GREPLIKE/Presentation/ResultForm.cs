@@ -32,7 +32,6 @@ namespace GREPLIKE
         // データソース初期化
         private bool InitializeDataSource()
         {
-            // 該当データなし
             if (!this.findResults.Any())
             {
                 MessageBox.Show("該当データが見つかりませんでした", "検索完了", MessageBoxButtons.OK, MessageBoxIcon.Information);

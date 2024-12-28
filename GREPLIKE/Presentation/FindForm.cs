@@ -73,8 +73,8 @@ namespace GREPLIKE
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"ユーザ選択フォルダ取得\n{ex}");
-                MessageBox.Show($"ユーザ選択フォルダ取得\n{ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine($"ユーザ選択フォルダ取得エラー\n{ex}");
+                MessageBox.Show($"ユーザ選択フォルダ取得エラー\n{ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
