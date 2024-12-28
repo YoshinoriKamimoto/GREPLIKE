@@ -84,19 +84,20 @@ namespace GREPLIKE
             string directory = direcotryTextBox.Text;
             if (string.IsNullOrEmpty(directory))
             {
-                MessageBox.Show("フォルダを指定してください", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("フォルダを指定してください。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             if (!Directory.Exists(directory))
             {
-                MessageBox.Show("指定されたフォルダが見つかりませんでした", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("指定されたフォルダが見つかりませんでした。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             string keyword = keywordTextBox.Text;
             if (string.IsNullOrEmpty(keyword))
             {
-                MessageBox.Show("キーワードを入力してください", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("キーワードを入力してください。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -105,7 +106,7 @@ namespace GREPLIKE
                 // 検索対象フォルダ取得
                 bool isRecursive = recursiveFindRadioButton.Checked; // サブフォルダ探索フラグ
                 IReadOnlyList<string> directories = new FindService().GetTargetDirectories(directory, isRecursive);
-                DialogResult dialogResult = MessageBox.Show($"探索対象が'{directories.Count}'フォルダ見つかりました\n続行してもよろしいですか？", "確認",
+                DialogResult dialogResult = MessageBox.Show($"探索対象が'{directories.Count}'フォルダ見つかりました。\n続行してもよろしいですか？", "確認",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (dialogResult == DialogResult.No)
                 {
@@ -140,6 +141,15 @@ namespace GREPLIKE
                 MessageBox.Show($"検索エラー\n{ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            ClearCurrentInput();
+        }
+
+        // 入力値クリア
+        private void ClearCurrentInput()
+        {
+            direcotryTextBox.Text = string.Empty;
+            keywordTextBox.Text = string.Empty;
+            recursiveFindRadioButton.Checked = false;
         }
     }
 }

@@ -34,10 +34,10 @@ namespace GREPLIKE
         {
             if (!this.findResults.Any())
             {
-                MessageBox.Show("該当データが見つかりませんでした", "検索完了", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("該当データが見つかりませんでした。", "検索完了", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            MessageBox.Show($"'{this.findResults.Count}'件のデータが見つかりました", "検索完了", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"'{this.findResults.Count}'件のデータが見つかりました。", "検索完了", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // データ表示
             try
