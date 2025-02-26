@@ -18,11 +18,11 @@ namespace GREPLIKE.BusinessLogic
             return directories;
         }
 
-        // 検索結果取得
-        public async Task<List<FindResult>> GetFindResults(IReadOnlyList<string> directories, string keyword)
+        // キーワードでファイル内文字列を検索
+        public async Task<List<TextResult>> FindTextByKeywordInFile(IReadOnlyList<string> directories, string keyword)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            List<FindResult> findResults = new List<FindResult>();
+            List<TextResult> findResults = new List<TextResult>();
             await Task.Run(() =>
             {
                 foreach (string directory in directories)
@@ -43,7 +43,7 @@ namespace GREPLIKE.BusinessLogic
                                 {
                                     continue;
                                 }
-                                findResults.Add(new FindResult(file, lineNumber));
+                                findResults.Add(new TextResult(file, lineNumber));
                             }
                         }
 
@@ -60,13 +60,35 @@ namespace GREPLIKE.BusinessLogic
                                 {
                                     continue;
                                 }
-                                findResults.Add(new FindResult(file, lineNumber));
+                                findResults.Add(new TextResult(file, lineNumber));
                             }
                         }
                     }
                 }
             });
             return findResults.Distinct().ToList();
+        }
+
+        // キーワードでファイル名を検索
+        public async Task<List<FileNameResult>> FindFileNameByKeyword(IReadOnlyList<string> directories, string keyword)
+        {
+            List<FileNameResult> fileNameResults = new List<FileNameResult>();
+            await Task.Run(() =>
+            {
+                foreach (string directory in directories)
+                {
+                    string[] files = Directory.GetFiles(directory);
+                    foreach (string file in files)
+                    {
+                        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file);
+                        if (fileNameWithoutExtension.Contains(keyword))
+                        {
+                            fileNameResults.Add(new FileNameResult(file, Path.GetFileName(file)));
+                        }
+                    }
+                }
+            });
+            return fileNameResults;
         }
     }
 }

@@ -28,48 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            direcotryTextBox = new TextBox();
+            directoryTextBox = new TextBox();
             referenceButton = new Button();
             keywordTextBox = new TextBox();
             label1 = new Label();
             findButton = new Button();
-            recursiveFindRadioButton = new RadioButton();
             label2 = new Label();
+            RecursiveFindCheckBox = new CheckBox();
+            groupBox1 = new GroupBox();
+            FindTextRadioButton = new RadioButton();
+            FindFileNameRadioButton = new RadioButton();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // direcotryTextBox
+            // directoryTextBox
             // 
-            direcotryTextBox.Location = new Point(39, 36);
-            direcotryTextBox.Name = "direcotryTextBox";
-            direcotryTextBox.Size = new Size(318, 23);
-            direcotryTextBox.TabIndex = 0;
-            direcotryTextBox.TabStop = false;
-            direcotryTextBox.Click += DirecotryTextBox_Click;
-            direcotryTextBox.KeyDown += DirecotryTextBox_KeyDown;
+            directoryTextBox.Location = new Point(36, 134);
+            directoryTextBox.Name = "directoryTextBox";
+            directoryTextBox.Size = new Size(318, 23);
+            directoryTextBox.TabIndex = 3;
+            directoryTextBox.TabStop = false;
+            directoryTextBox.Click += DirectoryTextBox_Click;
             // 
             // referenceButton
             // 
-            referenceButton.Location = new Point(363, 36);
+            referenceButton.Location = new Point(360, 134);
             referenceButton.Name = "referenceButton";
             referenceButton.Size = new Size(75, 23);
-            referenceButton.TabIndex = 1;
+            referenceButton.TabIndex = 4;
             referenceButton.Text = "参照";
             referenceButton.UseVisualStyleBackColor = true;
             referenceButton.Click += ReferenceButton_Click;
             // 
             // keywordTextBox
             // 
-            keywordTextBox.Location = new Point(39, 134);
+            keywordTextBox.Location = new Point(36, 232);
             keywordTextBox.Name = "keywordTextBox";
             keywordTextBox.Size = new Size(318, 23);
-            keywordTextBox.TabIndex = 3;
+            keywordTextBox.TabIndex = 6;
             keywordTextBox.Click += KeywordTextBox_Click;
-            keywordTextBox.KeyDown += KeywordTextBox_KeyDown;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(38, 116);
+            label1.Location = new Point(35, 214);
             label1.Name = "label1";
             label1.Size = new Size(49, 15);
             label1.TabIndex = 4;
@@ -77,63 +79,100 @@
             // 
             // findButton
             // 
-            findButton.Location = new Point(363, 134);
+            findButton.Location = new Point(360, 232);
             findButton.Name = "findButton";
             findButton.Size = new Size(75, 23);
-            findButton.TabIndex = 4;
+            findButton.TabIndex = 7;
             findButton.Text = "検索";
             findButton.UseVisualStyleBackColor = true;
             findButton.Click += FindButton_Click;
             // 
-            // recursiveFindRadioButton
-            // 
-            recursiveFindRadioButton.AutoCheck = false;
-            recursiveFindRadioButton.AutoSize = true;
-            recursiveFindRadioButton.Location = new Point(39, 65);
-            recursiveFindRadioButton.Name = "recursiveFindRadioButton";
-            recursiveFindRadioButton.Size = new Size(103, 19);
-            recursiveFindRadioButton.TabIndex = 2;
-            recursiveFindRadioButton.TabStop = true;
-            recursiveFindRadioButton.Text = "サブフォルダ探索";
-            recursiveFindRadioButton.UseVisualStyleBackColor = true;
-            recursiveFindRadioButton.Click += RecursiveFindRadioButton_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 18);
+            label2.Location = new Point(36, 116);
             label2.Name = "label2";
             label2.Size = new Size(42, 15);
             label2.TabIndex = 7;
             label2.Text = "フォルダ";
             // 
+            // RecursiveFindCheckBox
+            // 
+            RecursiveFindCheckBox.AutoSize = true;
+            RecursiveFindCheckBox.Location = new Point(36, 163);
+            RecursiveFindCheckBox.Name = "RecursiveFindCheckBox";
+            RecursiveFindCheckBox.Size = new Size(104, 19);
+            RecursiveFindCheckBox.TabIndex = 9;
+            RecursiveFindCheckBox.Text = "サブフォルダ探索";
+            RecursiveFindCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(FindFileNameRadioButton);
+            groupBox1.Controls.Add(FindTextRadioButton);
+            groupBox1.Location = new Point(36, 13);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(200, 80);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "検索モード";
+            // 
+            // FindTextRadioButton
+            // 
+            FindTextRadioButton.AutoSize = true;
+            FindTextRadioButton.Checked = true;
+            FindTextRadioButton.Location = new Point(24, 22);
+            FindTextRadioButton.Name = "FindTextRadioButton";
+            FindTextRadioButton.Size = new Size(131, 19);
+            FindTextRadioButton.TabIndex = 11;
+            FindTextRadioButton.TabStop = true;
+            FindTextRadioButton.Text = "ファイル内文字列検索";
+            FindTextRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // FindFileNameRadioButton
+            // 
+            FindFileNameRadioButton.AutoSize = true;
+            FindFileNameRadioButton.Location = new Point(24, 47);
+            FindFileNameRadioButton.Name = "FindFileNameRadioButton";
+            FindFileNameRadioButton.Size = new Size(95, 19);
+            FindFileNameRadioButton.TabIndex = 12;
+            FindFileNameRadioButton.TabStop = true;
+            FindFileNameRadioButton.Text = "ファイル名検索";
+            FindFileNameRadioButton.UseVisualStyleBackColor = true;
+            // 
             // FindForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(481, 186);
+            ClientSize = new Size(481, 288);
+            Controls.Add(groupBox1);
+            Controls.Add(RecursiveFindCheckBox);
             Controls.Add(label2);
-            Controls.Add(recursiveFindRadioButton);
             Controls.Add(findButton);
             Controls.Add(label1);
             Controls.Add(keywordTextBox);
             Controls.Add(referenceButton);
-            Controls.Add(direcotryTextBox);
+            Controls.Add(directoryTextBox);
             Name = "FindForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GREPLIKE";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox direcotryTextBox;
+        private TextBox directoryTextBox;
         private Button referenceButton;
         private TextBox keywordTextBox;
         private Label label1;
         private Button findButton;
-        private RadioButton recursiveFindRadioButton;
         private Label label2;
+        private CheckBox RecursiveFindCheckBox;
+        private GroupBox groupBox1;
+        private RadioButton FindTextRadioButton;
+        private RadioButton FindFileNameRadioButton;
     }
 }
