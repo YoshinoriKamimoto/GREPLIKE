@@ -7,14 +7,18 @@ namespace GREPLIKE.BusinessLogic
     internal class FindService
     {
         // 検索対象フォルダ取得
-        public List<string> GetTargetDirectories(string directory, bool isRecursive)
+        public async Task<List<string>> GetTargetDirectories(string directory, bool isRecursive)
         {
             List<string> directories = new List<string>();
-            directories.Add(directory);
-            if (isRecursive) // サブフォルダ再帰探索
+            await Task.Run(() =>
             {
-                directories.AddRange(DirectoryHelper.GetChildDirectories(directory));
-            }
+                directories.Add(directory);
+                if (isRecursive) // サブフォルダ再帰探索
+                {
+                    directories.AddRange(DirectoryHelper.GetChildDirectories(directory));
+                }
+            });
+            
             return directories;
         }
 

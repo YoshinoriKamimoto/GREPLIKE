@@ -32,7 +32,7 @@ namespace GREPLIKE
             }
 
             // 検索対象フォルダ取得
-            List<string>? targetDirectories = GetTargetDirectories(directory);
+            List<string>? targetDirectories = await GetTargetDirectories(directory);
             if (targetDirectories == null)
             {
                 return;
@@ -104,12 +104,28 @@ namespace GREPLIKE
         }
 
         // 検索対象フォルダ取得
-        private List<string>? GetTargetDirectories(string directory)
+        private async Task<List<string>?> GetTargetDirectories(string directory)
         {
+            List<string> directories = new List<string>();
             bool isRecursive = RecursiveFindCheckBox.Checked; // サブフォルダ探索フラグ
-            List<string> directories = new FindService().GetTargetDirectories(directory, isRecursive);
+            try
+            {
+                UIHelper.SetUIEnabled(this, false, Cursors.WaitCursor);
+                directories = await new FindService().GetTargetDirectories(directory, isRecursive);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"検索対象フォルダ取得エラー\n{ex}");
+                MessageBox.Show($"検索対象フォルダ取得エラー\n{ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                UIHelper.SetUIEnabled(this, true, Cursors.Default);
+            }
+
             DialogResult dialogResult = MessageBox.Show($"探索対象が'{directories.Count}'フォルダ見つかりました。\n続行してもよろしいですか？", "確認",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.No)
             {
                 return null;
